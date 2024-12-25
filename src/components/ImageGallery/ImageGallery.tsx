@@ -1,17 +1,11 @@
+import { Image } from "../../gallery-api";
 import ImageCard from "../ImageCard/ImageCard";
 import s from "./ImageGallery.module.css";
 
-type ImageData = {
-    id: string;
-    urls: {
-        regular: string;
-        small: string;
-    };
-    description: string | undefined;
-};
+
 
 type Props = {
-    data: ImageData[];
+    data: Image[];
     onClick: (url: string) => void;
 };
 

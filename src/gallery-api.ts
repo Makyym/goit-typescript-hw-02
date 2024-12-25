@@ -8,7 +8,7 @@ type ImageUrls = {
     small: string
 };
 
-type Image = {
+export type Image = {
     id: string;
     description: string | undefined;
     urls: ImageUrls;
@@ -21,6 +21,6 @@ type FetchImages = {
 }
 
 export const fetchImages = async (value: string, page: number): Promise<FetchImages> => {
-    const response = await axios.get(`?client_id=${key}&query=${value}&page=${page}&per_page=15&orientation=landscape`);
+    const response = await axios.get<FetchImages>(`?client_id=${key}&query=${value}&page=${page}&per_page=15&orientation=landscape`);
     return response.data;
 }

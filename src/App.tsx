@@ -2,23 +2,14 @@ import './App.css';
 import SearchBar from './components/SearchBar/SearchBar';
 import { useEffect, useState } from 'react';
 import ImageGallery from './components/ImageGallery/ImageGallery';
-import { fetchImages } from './gallery-api';
+import { fetchImages, Image } from './gallery-api';
 import LoadMoreBtn from './components/LoadMoreBtn/LoadMoreBtn';
 import Loader from './components/Loader/Loader';
 import ImageModal from './components/ImageModal/ImageModal';
 
-type ImageData = {
-  id: string;
-  urls: {
-      regular: string;
-      small: string;
-  };
-  description: string | undefined;
-};
-
 function App() {
   const [searchValue, setSearchValue] = useState<string>("");
-  const [galleryData, setGalleryData] = useState<ImageData[]>([]);
+  const [galleryData, setGalleryData] = useState<Image[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const [page, setPage] = useState<number>(1);
